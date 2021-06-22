@@ -2,14 +2,14 @@ const app = Vue.createApp({
     data() {
         return {
             inputClass: '',
-            userInput2: '',
-            isVisible: true,
+            inputColor: '',
+            paragraphIsVisible: true,
             colorEntered: false,
         }
     },
     methods: {
         toggleVisibility() {
-            this.isVisible = !this.isVisible;
+            this.paragraphIsVisible = !this.paragraphIsVisible;
         },
         isColorEntered(event) {
             if (event.key === 'Enter') {
@@ -18,20 +18,14 @@ const app = Vue.createApp({
         }
     },
     computed: {
-        colors() {
-            if (this.inputClass === 'user1') {
-                return { user1: true };
-            } else if (this.inputClass === 'user2') {
-                return { user2: true };
+        paragraphClasses() {
+            return {
+                user1: this.inputClass === 'user1',
+                user2: this.inputClass === 'user2',
+                visible: this.paragraphIsVisible,
+                hidden: !this.paragraphIsVisible
             }
         },
-        visibility() {
-            if (this.isVisible) {
-                return { visible: this.isVisible };
-            } else {
-                return { hidden: !this.isVisible };
-            }
-        }
     },
 });
 

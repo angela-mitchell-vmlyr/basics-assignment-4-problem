@@ -21,7 +21,7 @@
       <!-- The entered class should be added to the below paragraph -->
       <input type="text" v-model="inputClass" />
       <!-- (available classes: "user1", "user2") -->
-      <p :class="colors">
+      <p :class="paragraphClasses">
         Style me!
       </p>
       <button @click="toggleVisibility">Toggle Paragraph</button>
@@ -29,7 +29,7 @@
       <!-- Clicking the button should toggle between the two options -->
 
       <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
-      <input type="text" v-model="userInput2" @keyup.enter="isColorEntered"/>
+      <input type="text" v-model="inputColor" @keyup.enter="isColorEntered"/>
       <p :style="{backgroundColor: colorEntered ? userInput2 : '#8ddba4'}">Style me inline!</p>
     </section>
   </body>
