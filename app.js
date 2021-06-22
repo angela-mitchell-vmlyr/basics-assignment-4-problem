@@ -1,31 +1,38 @@
 const app = Vue.createApp({
     data() {
         return {
-            userInput: '',
+            userInput1: '',
+            userInput2: '',
             user1Entered: false,
             user2Entered: false,
             isVisible: true,
+            colorEntered: false,
         }
     },
     methods: {
-        userInputEntered() {
-            if (this.userInput.toLowerCase() === 'user1') {
+        userInput1Entered() {
+            if (this.userInput1.toLowerCase() === 'user1') {
                 this.user1Entered = true;
                 this.user2Entered = false;
-            } else if (this.userInput.toLowerCase() === 'user2') {
+            } else if (this.userInput1.toLowerCase() === 'user2') {
                 this.user1Entered = false;
                 this.user2Entered = true;
             }
         },
         toggleVisibility() {
             this.isVisible = !this.isVisible;
+        },
+        isColorEntered(event) {
+            if (event.key === 'Enter') {
+                this.colorEntered = true;
+            }
         }
     },
     computed: {
         colors() {
-            if (this.userInput.toLowerCase() === 'user1') {
+            if (this.user1Entered) {
                 return { user1: this.user1Entered };
-            } else if (this.userInput.toLowerCase() === 'user2') {
+            } else if (this.user2Entered) {
                 return { user2: this.user2Entered };
             }
         },
