@@ -18,6 +18,13 @@ const app = Vue.createApp({
         }
     },
     computed: {
+        colors() {
+            if (this.inputClass === 'user1') {
+                return { user1: true };
+            } else if (this.inputClass === 'user2') {
+                return { user2: true };
+            }
+        },
         visibility() {
             if (this.isVisible) {
                 return { visible: this.isVisible };
