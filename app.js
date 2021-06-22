@@ -2,19 +2,13 @@ const app = Vue.createApp({
     data() {
         return {
             inputClass: '',
-            inputColor: '',
+            inputBackgroundColor: '',
             paragraphIsVisible: true,
-            colorEntered: false,
         }
     },
     methods: {
         toggleVisibility() {
             this.paragraphIsVisible = !this.paragraphIsVisible;
-        },
-        isColorEntered(event) {
-            if (event.key === 'Enter') {
-                this.colorEntered = true;
-            }
         }
     },
     computed: {
